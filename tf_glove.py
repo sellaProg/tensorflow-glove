@@ -231,6 +231,10 @@ def _batchify(batch_size, *sequences):
 
 def _plot_with_labels(low_dim_embs, labels, path, size):
     import matplotlib.pyplot as plt
+    from matplotlib import font_manager, rc
+    font_location='/NanumBarunGothic.ttf'
+    font_manager.FontProperties(fname=font_location)
+    rc('font',family='NanumBarunGothic')
     assert low_dim_embs.shape[0] >= len(labels), "More labels than embeddings"
     figure = plt.figure(figsize=size)  # in inches
     for i, label in enumerate(labels):
